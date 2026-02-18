@@ -21,7 +21,7 @@ public class Main{
         }
         gym.listActiveMembers();
 
-        gym.removeMember("Carla");
+        gym.removeMember("Rafael");
         gym.listMembers();
         gym.removeMember("João");
 
