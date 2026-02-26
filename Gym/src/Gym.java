@@ -11,19 +11,27 @@ public class Gym {
     //metódos
 
     public boolean removeMember(String name){
-        for(Member b: member){
-            if(b.getName().equals(name)){
-                member.remove(b);
+        for(int i=0; i<member.size(); i++){
+            Member m = member.get(i);
+
+            if(m.getName().equals(name)){
+                if(m.isActive()){
+                    System.out.println("Cannot remove an activer member");
+                    return false;
+                }
+                member.remove(i);
+                System.out.printf("Member %s removed successfully\n", name);
                 return true;
             }
-
         }
+        System.out.println("Member not found");
         return false;
     }
 
     public void addMember(Member a){
         member.add(a);
     }
+
     public void listMembers(){
         System.out.println("---------------------");
         System.out.println("LIST ALL MEMBERS: ");
@@ -31,6 +39,31 @@ public class Gym {
             list.showInfo();
         }
     }
+
+    public void disableMember(String nome){
+        Member find = findMemberByName(nome);
+        if(find != null){
+            find.disable();
+        }
+    }
+
+    public boolean activateMember(String name){
+
+        Member m = findMemberByName(name);
+
+        if (m == null) {
+            System.out.println("Member not found.");
+            return false;
+            }
+        if (m.isActive()) {
+            System.out.println("Member is already active.");
+            return false;
+            }
+        m.active();
+        System.out.println("Member activated successfully.");
+        return true;
+        }
+
     public void listActiveMembers(){
         System.out.println("---------------------");
         System.out.println("LIST ACTIVE MEBMERS: ");
@@ -47,4 +80,5 @@ public class Gym {
             }
         }
         return null;
-}}
+}
+}

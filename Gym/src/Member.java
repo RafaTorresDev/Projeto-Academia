@@ -1,4 +1,5 @@
 public class Member {
+    //atributos
     private String name;
     private int age;
     private boolean status;
@@ -37,14 +38,12 @@ public class Member {
     public boolean isActive(){
         return status;
     }
-
     public void active(){
         status = true;
     }
     public void disable(){
         status = false;
     }
-
     public void showInfo(){
         System.out.printf(" Name: %s\n Age: %d\n Status: %s\n\n", name, age, status);
     }
