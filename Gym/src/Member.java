@@ -3,16 +3,24 @@ public class Member {
     private String name;
     private int age;
     private boolean status;
+    private static int counter = 1;
+    private int id;
 
     //construtores
-    public Member(int age, String name) {
+    public Member(int age, String name, int id) {
         this.age = age;
         this.name = name;
         this.status = true;
+        this.id = counter++;
     }
-    public Member(){}
 
     //getter e setter
+
+
+    public int getId() {
+        return id;
+    }
+
     public int getAge() {
         return age;
     }
@@ -35,6 +43,8 @@ public class Member {
 
 
     //metódos
+    public void registerMember(String name, int age, int id){
+    }
     public boolean isActive(){
         return status;
     }
@@ -45,6 +55,9 @@ public class Member {
         status = false;
     }
     public void showInfo(){
-        System.out.printf(" Name: %s\n Age: %d\n Status: %s\n\n", name, age, status);
+        System.out.printf(
+                "ID: %d | Name: %s | Age: %d | Status: %s\n",
+                id, name, age, status
+        );
     }
 }

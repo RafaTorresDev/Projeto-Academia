@@ -81,4 +81,19 @@ public class Gym {
         }
         return null;
 }
+
+    public void rigisterMember(int age, String name, int id){
+        Member newMember = new Member(age, name, id);
+        member.add(newMember);
+
+        System.out.println("Member registered successfully. ID: " + newMember.getId());
+    }
+    public Member findMemberById(int id){
+        for(Member m : member){
+            if(m.getId() == id){
+                return m;
+            }
+        }
+        return null;
+    }
 }
